@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<sdf version="1.10">
+
+  <model name="dirty_tunnel">
+
+    <static>true</static>
+
+    <link name="tunnel_link">
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>dirty_tunnel.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>dirty_tunnel.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+    </link>
+
+  </model>
+
+</sdf>

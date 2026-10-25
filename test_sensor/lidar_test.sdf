@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<sdf version="1.10">
+
+  <world name="test_world">
+
+    <plugin
+      filename="gz-sim-physics-system"
+      name="gz::sim::systems::Physics"/>
+
+    <plugin
+      filename="gz-sim-user-commands-system"
+      name="gz::sim::systems::UserCommands"/>
+
+    <plugin
+      filename="gz-sim-scene-broadcaster-system"
+      name="gz::sim::systems::SceneBroadcaster"/>
+
+    <plugin
+      filename="gz-sim-sensors-system"
+      name="gz::sim::systems::Sensors"/>
+
+    <model name="lidar_box">
+
+      <static>true</static>
+
+      <link name="link">
+
+        <sensor name="gpu_lidar" type="gpu_lidar">
+
+          <always_on>true</always_on>
+          <visualize>true</visualize>
+          <update_rate>10</update_rate>
+
+          <topic>/scan</topic>
+
+          <lidar>
+
+            <scan>
+
+              <horizontal>
+
+                <samples>360</samples>
+
+                <resolution>1</resolution>
+
+                <min_angle>-3.14</min_angle>
+
+                <max_angle>3.14</max_angle>
+
+              </horizontal>
+
+            </scan>
+
+            <range>
+
+              <min>0.1</min>
+
+              <max>10.0</max>
+
+              <resolution>0.01</resolution>
+
+            </range>
+
+          </lidar>
+
+        </sensor>
+
+      </link>
+
+    </model>
+
+  </world>
+
+</sdf>
