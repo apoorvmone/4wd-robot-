@@ -97,32 +97,4 @@ ros2 launch fourwd_bringup nav2.launch.py
 
 Nav2 uses simulation time and the parameters in `src/fourwd_bringup/config/nav2/nav2_params.yaml`. In RViz, use **Nav2 Goal** to place a goal pose after the map and transform tree are available.
 
-## Run the tunnel world only
 
-To open the tunnel environment without automatically spawning the robot, run:
-
-```bash
-source /opt/ros/${ROS_DISTRO}/setup.bash
-cd 4wd-robot-
-source install/setup.bash
-ros2 launch fourwd_gazebo tunnel_gazebo.launch.py
-```
-
-The complete bringup launcher currently uses the room world. The tunnel launch is intended for world inspection or custom spawning experiments.
-
-## Troubleshooting
-
-- **`Package ... not found`** — source both `/opt/ros/${ROS_DISTRO}/setup.bash` and this workspace’s `install/setup.bash`; rebuild if necessary.
-- **Robot does not move** — make sure `sim_bringup.launch.py` is running and verify that `/cmd_vel` appears in `ros2 topic list`.
-- **No map or scan in RViz** — wait for Gazebo to start, set RViz’s fixed frame to `map`, and confirm `/scan` is active.
-- **Gazebo cannot find assets or plugins** — use a ROS 2/Gazebo Sim combination supported by the installed `ros-gz` package.
-
-## Project layout
-
-| Directory | Purpose |
-| --- | --- |
-| `src/fourwd_description` | Robot URDF and sensor definitions |
-| `src/fourwd_gazebo` | Gazebo worlds and launch files |
-| `src/fourwd_bringup` | Simulation, TF, SLAM, and Nav2 launch/configuration files |
-| `src/fourwd_navigation` | Navigation package scaffold |
-| `src/fourwd_slam` | SLAM package scaffold |
